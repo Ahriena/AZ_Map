@@ -11,7 +11,7 @@ namespace AZ_Map
     class Item
     {
         public string POG;
-        public Xamarin.Forms.Shapes.Rectangle Area_5_Location;
+        public Xamarin.Forms.Shapes.Rectangle Location;
 
         public override string ToString()
         {
@@ -24,7 +24,7 @@ namespace AZ_Map
     public partial class MainPage : ContentPage
     {
         ObservableCollection<Item> Items = new ObservableCollection<Item>();
-        Xamarin.Forms.Shapes.Rectangle Previous_Selection_Area_5 = null;
+        Xamarin.Forms.Shapes.Rectangle Previous_Selection = null;
 
 
 
@@ -33,20 +33,28 @@ namespace AZ_Map
             Item Spark_Plugs = new Item();
             Spark_Plugs.POG = "PLUGS - Spark Plugs";
             Xamarin.Forms.Shapes.Rectangle Spark_Plug_Location = Area_5_Row_2;
-            Spark_Plugs.Area_5_Location = Spark_Plug_Location;
+            Spark_Plugs.Location = Spark_Plug_Location;
             Items.Add(Spark_Plugs);
 
             Item Battery = new Item();
             Battery.POG = "BATTERY - Batteries";
             Xamarin.Forms.Shapes.Rectangle Battery_Location = Area_5_Column_1;
-            Battery.Area_5_Location = Battery_Location;
+            Battery.Location = Battery_Location;
             Items.Add(Battery);
 
             Item Clutches = new Item();
             Clutches.POG = "STARTER - Starters";
             Xamarin.Forms.Shapes.Rectangle Starter_Location = Area_5_Column_2;
-            Clutches.Area_5_Location = Battery_Location;
-            Items.Add(Clutches);
+            Clutches.Location = Starter_Location;
+            Items.Add(Clutches); 
+            
+            Item Gaskets = new Item();
+            Gaskets.POG = "GASKETS - Gaskets";
+            Xamarin.Forms.Shapes.Rectangle Gaskets_Location = Area_5_Row_1;
+            Gaskets.Location = Gaskets_Location;
+            Items.Add(Gaskets);
+
+
         }
 
         

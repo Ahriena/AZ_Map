@@ -15,14 +15,14 @@
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="150"/>
+                <RowDefinition Height="200"/>
             </Grid.RowDefinitions>
 
-            <ListView x:Name="POG_List" Grid.Row="0">
+            <ListView x:Name="POG_List" Grid.Row="0" ItemSelected="Pog_List_Item_Selected">
               
             </ListView>
 
-            <ScrollView Grid.Row="1" Orientation="Both" HeightRequest="700">
+            <ScrollView Grid.Row="1" Orientation="Both" HeightRequest="800">
                 <Grid RowDefinitions="auto,auto,auto" ColumnDefinitions="auto,*">
                     <Image x:Name="Background_Image" Source="AZ_Map.png" HeightRequest="1000" Margin="0,0,0,0" Aspect="AspectFit" TranslationX="0" TranslationY="100">
                         <Image.GestureRecognizers>
@@ -34,7 +34,10 @@
 
                     <Rectangle IsVisible="False"  x:Name="Area_5_Row_2" Aspect="None" Opacity=".5" BackgroundColor="Red" StrokeThickness="3" WidthRequest="90" HeightRequest="13" Margin="-507,635,0,0" HorizontalOptions="Center" VerticalOptions="Center"/>
                     <Rectangle IsVisible="False"  x:Name="Area_5_Column_1" Aspect="None" Opacity=".5" BackgroundColor="Red" StrokeThickness="3" WidthRequest="10" HeightRequest="135" Margin="-992,227,0,0" HorizontalOptions="Center" VerticalOptions="Center"/>
-                    <Rectangle IsVisible="True"  x:Name="Area_5_Column_2" Aspect="None" Opacity=".5" BackgroundColor="Red" StrokeThickness="3" WidthRequest="10" HeightRequest="135" Margin="-630,-80,0,0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Rectangle IsVisible="False"  x:Name="Area_5_Column_2" Aspect="None" Opacity=".5" BackgroundColor="Red" StrokeThickness="3" WidthRequest="10" HeightRequest="135" Margin="-630,-80,0,0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Rectangle IsVisible="False"  x:Name="Area_5_Row_1" Aspect="None" Opacity=".5" BackgroundColor="Red" StrokeThickness="3" WidthRequest="100" HeightRequest="13" Margin="-500,718,0,0" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+
 
                 </Grid>
 

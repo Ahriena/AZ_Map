@@ -23,12 +23,27 @@ namespace AZ_Map
 
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
+            POG_List.ItemsSource = Items.Where(s => s.POG.Contains(e.NewTextValue));
 
         }
 
         private void Pog_List_Item_Selected(object sender, SelectedItemChangedEventArgs e)
         {
-
+            var item = e.SelectedItem as Item;
+            if (item != null)
+            {
+                if (Previous_Selection!= null)
+                {
+                    Previous_Selection.IsVisible = false;
+                }
+                Previous_Selection = item.Location;
+                Previous_Selection.IsVisible = true;
+            }
+            else
+            {
+                Previous_Selection = item.Location;
+                Previous_Selection.IsVisible = true;
+            }
         }
 
 

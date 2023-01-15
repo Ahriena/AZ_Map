@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AZ_Map.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="5" VerticalOptions="Center">
+            <Grid>
+                <SearchBar x:Name="POG_SearchBar" Placeholder="POG Lookup" BackgroundColor="White" TextChanged="SearchBar_TextChanged">
+
+                </SearchBar>
+
+            </Grid>
+        </Frame>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+            </Grid.RowDefinitions>
+
+            <ListView x:Name="POG_List" Grid.Row="0">
+              
+            </ListView>
+
+            <ScrollView Grid.Row="1" Orientation="Both" HeightRequest="700">
+                <Grid RowDefinitions="auto,auto,auto" ColumnDefinitions="auto,*">
+                    <Image x:Name="Background_Image" Source="AZ_Map.png" HeightRequest="1000" Margin="0,0,0,0" Aspect="AspectFit" TranslationX="0" TranslationY="100">
+                        <Image.GestureRecognizers>
+                            <PinchGestureRecognizer PinchUpdated="OnPinchUpdated" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <!-- RECTANGLES USED TO HIGHLIGHT THE VARIOUS AREAS       -->
+
+                    <Rectangle IsVisible="False"  x:Name="Area_5_Row_2" Aspect="None" Opacity=".5" BackgroundColor="Red" StrokeThickness="3" WidthRequest="90" HeightRequest="13" Margin="-507,635,0,0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Rectangle IsVisible="False"  x:Name="Area_5_Column_1" Aspect="None" Opacity=".5" BackgroundColor="Red" StrokeThickness="3" WidthRequest="10" HeightRequest="135" Margin="-992,227,0,0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Rectangle IsVisible="True"  x:Name="Area_5_Column_2" Aspect="None" Opacity=".5" BackgroundColor="Red" StrokeThickness="3" WidthRequest="10" HeightRequest="135" Margin="-630,-80,0,0" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+                </Grid>
+
+            </ScrollView>
+
+        </Grid>
+
+
+    </StackLayout>
+
+
+</ContentPage>

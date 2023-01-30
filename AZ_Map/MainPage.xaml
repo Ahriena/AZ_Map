@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pinch="clr-namespace:Xamarin.Forms.PinchZoomImage;assembly=Xamarin.Forms.PinchZoomImage" xmlns:local="clr-namespace:AZ_Map"
              x:Class="AZ_Map.MainPage">
 
     <StackLayout>
@@ -13,40 +13,57 @@
             </Grid>
         </Frame>
 
-        <Grid>
+        <Grid RowSpacing="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="200"/>
+                <RowDefinition Height="178"/>
             </Grid.RowDefinitions>
 
-            <ListView x:Name="POG_List" Grid.Row="0" ItemSelected="Pog_List_Item_Selected">
-              
-            </ListView>
+            <ListView x:Name="POG_List" Grid.Row="0" ItemSelected="Pog_List_Item_Selected"/>
 
-            <ScrollView Grid.Row="1" Orientation="Both" HeightRequest="800">
-                <Grid RowDefinitions="auto,auto,auto" ColumnDefinitions="auto,*">
-                    <Image x:Name="Background_Image" Source="AZ_Map.png" HeightRequest="1000" Margin="0,0,0,0" Aspect="AspectFit" TranslationX="0" TranslationY="100">
-                        <Image.GestureRecognizers>
-                            <PinchGestureRecognizer PinchUpdated="OnPinchUpdated" />
-                        </Image.GestureRecognizers>
-                    </Image>
+            <ScrollView x:Name="ScrollView1" Grid.Row="1" Orientation="Both" HeightRequest="800">
+                <Grid x:Name="Grid1" RowDefinitions="auto,auto,auto" ColumnDefinitions="auto,*" RowSpacing="0">
+                    <!-- Failed attempt at implementing pinch to zoom features -->
+                    <StackLayout>
+                        <local:PinchToZoomContainer>
+                            <local:PinchToZoomContainer.Content>
+                                <Image x:Name="Background_Image" Source="AZ_Map_Final.png" HeightRequest="1000" Margin="0,0,0,0" Aspect="AspectFit" TranslationX="0" TranslationY="0">
 
-                    <!-- RECTANGLES USED TO HIGHLIGHT THE VARIOUS AREAS       -->
+                                </Image>
+                            </local:PinchToZoomContainer.Content>
+                        </local:PinchToZoomContainer>
+                    </StackLayout>
 
-                    <Rectangle IsVisible="False"  x:Name="Area_5_Row_2" Aspect="None" Opacity=".5" BackgroundColor="Red" StrokeThickness="3" WidthRequest="90" HeightRequest="13" Margin="-507,635,0,0" HorizontalOptions="Center" VerticalOptions="Center"/>
-                    <Rectangle IsVisible="False"  x:Name="Area_5_Column_1" Aspect="None" Opacity=".5" BackgroundColor="Red" StrokeThickness="3" WidthRequest="10" HeightRequest="135" Margin="-992,227,0,0" HorizontalOptions="Center" VerticalOptions="Center"/>
-                    <Rectangle IsVisible="False"  x:Name="Area_5_Column_2" Aspect="None" Opacity=".5" BackgroundColor="Red" StrokeThickness="3" WidthRequest="10" HeightRequest="135" Margin="-630,-80,0,0" HorizontalOptions="Center" VerticalOptions="Center"/>
-                    <Rectangle IsVisible="False"  x:Name="Area_5_Row_1" Aspect="None" Opacity=".5" BackgroundColor="Red" StrokeThickness="3" WidthRequest="100" HeightRequest="13" Margin="-500,718,0,0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <StackLayout>
+                        <Image x:Name="Center_Down_Left" Source="Down_Left_Arrow.png" IsVisible="False" WidthRequest="80"  HeightRequest="80" Margin="0,500,0,0" Aspect="AspectFit" TranslationX="0" TranslationY="-10"></Image>
+                    </StackLayout>
 
+                    <StackLayout>
+                        <Image x:Name="Center_Down_Right" Source="Down_Right_Arrow.png" IsVisible="False" WidthRequest="120"  HeightRequest="115" Margin="20,500,0,0" Aspect="AspectFit" TranslationX="0" TranslationY="-10"></Image>
+                    </StackLayout>
+                    
+                    <StackLayout>
+                        <Image x:Name="Center_Left_Arrow" Source="Left_Arrow.png" IsVisible="False" WidthRequest="120"  HeightRequest="80" Margin="20,500,0,0" Aspect="AspectFit" TranslationX="0" TranslationY="-10"></Image>
+                    </StackLayout>
 
+                    <!-- RECTANGLES USED TO HIGHLIGHT THE VARIOUS AREAS        -->
 
+                    <Rectangle IsVisible="False"  x:Name="LOC5_PLUGS" Aspect="None" Opacity=".8" BackgroundColor="#FF4D53" StrokeThickness="3" WidthRequest="130" HeightRequest="8" Margin="-807.5,668,0,0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    
+                    <Rectangle IsVisible="False"  x:Name="LOC5_BATTERY" Aspect="None" Opacity=".8" BackgroundColor="#FF4D53" StrokeThickness="3" WidthRequest="10" HeightRequest="135" Margin="-1426,128,0,0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    
+                    <Rectangle IsVisible="False"  x:Name="LOC5_STARTER" Aspect="None" Opacity=".8" BackgroundColor="#FF4D53" StrokeThickness="3" WidthRequest="10" HeightRequest="135" Margin="-953,127,0,0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    
+                    <Rectangle IsVisible="False"  x:Name="LOC5_GASKETS1" Aspect="None" Opacity=".8" BackgroundColor="#FF4D53" StrokeThickness="3" WidthRequest="215" HeightRequest="8" Margin="-780.5,717,0,0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Rectangle IsVisible="False"  x:Name="LOC5_GASKETS2" Aspect="None" Opacity=".8" BackgroundColor="#FF4D53" StrokeThickness="3" WidthRequest="10" HeightRequest="135" Margin="-967.,532,0,0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                   
+                    <Rectangle IsVisible="False"  x:Name="LOC5_BATTERY1522" Aspect="None" Opacity=".8" BackgroundColor="#FF4D53" StrokeThickness="3" WidthRequest="10" HeightRequest="103" Margin="-708,156.5,0,0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                
                 </Grid>
-
+                
             </ScrollView>
-
+            
         </Grid>
 
-
     </StackLayout>
-
 
 </ContentPage>
